@@ -27,8 +27,6 @@ __location__ = os.path.realpath(
 with open('config.json') as config_json:
     config = json.load(config_json)
 
-# Read the location
-
 #subj_dir is supposed to be the subjects directory in FREESURFER SUBJECTS_DIR, but because we are on Brainlife, the freesurfer datatype points to a directory (???)
 #We suppose that 'output' is going to serve as subject ID
 
@@ -37,10 +35,10 @@ subjects_dir = __location__
 #subject: Name of freesurfer subject folder
 subject = 'output'
 
+
 report = mne.Report(title='Report')
 
 mne.bem.make_watershed_bem(subject, subjects_dir=subjects_dir)
-
 
 report.add_bem(
     subject=subject,
@@ -50,6 +48,5 @@ report.add_bem(
     width=256,
 )
 
- 
  # == SAVE REPORT ==
 report.save(os.path.join('out_dir','report.html'))
