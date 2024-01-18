@@ -11,6 +11,6 @@ mkdir -p out_dir
 mkdir -p out_figs
 mkdir -p out_dir_report
 
+singularity exec docker://brainlife/mne:1.0.2 mne main.py
 
-
-singularity exec docker://brainlife/mne:1.0.2 mne watershed_bem
+#singularity exec docker://brainlife/mne:1.0.2 mne watershed_bem
