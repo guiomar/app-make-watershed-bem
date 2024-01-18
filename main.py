@@ -31,18 +31,25 @@ with open('config.json') as config_json:
 
 #subj_dir is supposed to be the subjects directory in FREESURFER SUBJECTS_DIR, but because we are on Brainlife, the freesurfer datatype points to a directory (???)
 #We suppose that 'output' is going to serve as subject ID
-subj_dir = __location__
-subj = 'output'
+
+#subjects_dir: path to the directory containing the FreeSurfer subjects reconstructions (SUBJECTS_DIR)
+subjects_dir = __location__ 
+#subject: Name of freesurfer subject folder
+subject = 'output'
 
 report = mne.Report(title='Report')
 
-mne.bem.make_watershed_bem(subj, subjects_dir=subj_dir)
+mne.bem.make_watershed_bem(subject, subjects_dir=subjects_dir)
 
-report.add_html(title='Counts of correct responses',html='<dev>'+'Correct responses: '+str(correct_response_count)+
-       'Incorrect responses: '+str(incorrect_response_count)+'</dev>')
+
+report.add_bem(
+    subject=subject,
+    subjects_dir=subjects_dir,
+    title="MRI & BEM",
+    decim=40,
+    width=256,
+)
+
  
  # == SAVE REPORT ==
 report.save(os.path.join('out_dir','report.html'))
-
- # == SAVE FILE ==
-epochs.save(os.path.join('out_dir', 'meg-epo.fif'), overwrite=True)
