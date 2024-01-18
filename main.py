@@ -31,10 +31,11 @@ with open('config.json') as config_json:
 #We suppose that 'output' is going to serve as subject ID
 
 #subjects_dir: path to the directory containing the FreeSurfer subjects reconstructions (SUBJECTS_DIR)
-subjects_dir = __location__ 
-#subject: Name of freesurfer subject folder
-subject = 'output'
+subjects_dir = os.environ['SUBJECTS_DIR']
 
+#subject: Name of freesurfer subject folder
+#subject = 'output'
+subject_id=os.path.basename(os.path.normpath(sys.argv[2]))
 
 report = mne.Report(title='Report')
 
