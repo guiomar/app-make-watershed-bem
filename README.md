@@ -1,4 +1,4 @@
-# app-epoch
+# app-make-watershed-bem
 
 Brainlife App to make watershed BEMs based on Freesurfer output [MNE/Python mne.bem.make_watershed_bem function](https://mne.tools/stable/generated/mne.bem.make_watershed_bem.html#mne-bem-make-watershed-bem)
 
