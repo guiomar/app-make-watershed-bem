@@ -2,7 +2,7 @@
 
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=01:10:00
-#PBS -l vmem=32G
+#PBS -l vmem=20gb
 
 set -x
 set -e
