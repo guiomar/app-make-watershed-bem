@@ -1,22 +1,9 @@
-import mne
-import json
 import os
-import os.path as op
-import matplotlib.pyplot as plt
-from pathlib import Path
-import tempfile
-import numpy as np
-import scipy.ndimage
-import matplotlib.pyplot as plt
-import sys
-
-#workaround for -- _tkinter.TclError: invalid command name ".!canvas"
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-
-
+import json
 import mne
+
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 # Current path
@@ -27,21 +14,21 @@ __location__ = os.path.realpath(
 with open('config.json') as config_json:
     config = json.load(config_json)
 
-#subj_dir is supposed to be the subjects directory in FREESURFER SUBJECTS_DIR, but because we are on Brainlife, the freesurfer datatype points to a directory (???)
-#We suppose that 'output' is going to serve as subject ID
-
-#subjects_dir: path to the directory containing the FreeSurfer subjects reconstructions (SUBJECTS_DIR)
+# subjects_dir: path to the directory containing the FreeSurfer subjects reconstructions (SUBJECTS_DIR)
 subjects_dir = config['output']
 #subjects_dir = os.environ['SUBJECTS_DIR']
 
-#subject: Name of freesurfer subject folder
+# subject: Name of freesurfer subject folder
 subject = 'output'
 #subject_id=os.path.basename(os.path.normpath(sys.argv[2]))
 
+# Start MNE-Report
 report = mne.Report(title='Report')
 
+# Make Watershed BEM
 mne.bem.make_watershed_bem(subject, subjects_dir=subjects_dir)
 
+# Add BEM to MNE-Report
 report.add_bem(
     subject=subject,
     subjects_dir=subjects_dir,
@@ -50,5 +37,5 @@ report.add_bem(
     width=256,
 )
 
- # == SAVE REPORT ==
+# == SAVE REPORT ==
 report.save(os.path.join('out_dir','report.html'))
