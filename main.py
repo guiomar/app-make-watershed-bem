@@ -31,7 +31,7 @@ subjects_dir = "out_dir"
 report = mne.Report(title='Report')
 
 # Make Watershed BEM
-mne.bem.make_watershed_bem(subject, subjects_dir=subjects_dir)
+mne.bem.make_watershed_bem(subject, subjects_dir=subjects_dir, overwrite=True)
 
 # Add BEM to MNE-Report
 report.add_bem(
