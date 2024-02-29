@@ -16,12 +16,16 @@ with open('config.json') as config_json:
 
 # subjects_dir: path to the directory containing the FreeSurfer subjects reconstructions (SUBJECTS_DIR)
 subjects_dir = config['output']
-subjects_dir = os.path.dirname(subjects_dir)
+subjects_dir = os.path.dirname(subjects_dir) # remove the last folder level (subject name)
 #subjects_dir = os.environ['SUBJECTS_DIR']
 
 # subject: Name of freesurfer subject folder
 subject = 'output'
 #subject_id=os.path.basename(os.path.normpath(sys.argv[2]))
+
+# copy folder subjects_dir to "out_dir"
+os.system("cp -r " + subjects_dir + " out_dir")
+subjects_dir = "out_dir"
 
 # Start MNE-Report
 report = mne.Report(title='Report')
