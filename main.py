@@ -16,7 +16,7 @@ with open('config.json') as config_json:
 
 # subjects_dir: path to the directory containing the FreeSurfer subjects reconstructions (SUBJECTS_DIR)
 subjects_dir = config['output']
-subjects_dir = os.path.dirname(subjects_dir) # remove the last folder level (subject name)
+# subjects_dir = os.path.dirname(subjects_dir) # remove the last folder level (subject name)
 #subjects_dir = os.environ['SUBJECTS_DIR']
 
 # subject: Name of freesurfer subject folder
