@@ -39,4 +39,4 @@ report.add_bem(
 )
 
 # == SAVE REPORT ==
-report.save(os.path.join('out_dir','report.html'))
+report.save(os.path.join('out_dir_report','report.html'))
