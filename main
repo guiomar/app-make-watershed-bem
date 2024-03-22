@@ -10,11 +10,6 @@ mkdir -p out_dir_report
 
 # export SUBJECTS_DIR="$(dirname "$out_dir")"
 
-# singularity exec -e docker://brainlife/mne-freesurfer:7.3.2-1.2.1 python3 main.py
-###############
-## DEBUG ICM ##
-env
-singularity --debug --verbose exec -e docker://brainlife/mne-freesurfer:7.3.2-1.2.1 python3 main.py
-###############
+singularity exec -e docker://brainlife/mne-freesurfer:7.3.2-1.2.1 python3 main.py
 
 # singularity exec -e docker://brainlife/mne-freesurfer:7.3.2-1.2.1 mne watershed_bem
