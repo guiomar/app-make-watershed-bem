@@ -20,7 +20,6 @@ subjects_dir = config['output']
 
 # subject: Name of freesurfer subject folder
 subject = 'output'
-#subject_id=os.path.basename(os.path.normpath(sys.argv[2]))
 
 # copy folder subjects_dir to "out_dir"
 os.system("cp -r " + subjects_dir + "out_dir")
