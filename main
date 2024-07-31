@@ -4,7 +4,7 @@
 #PBS -l vmem=20gb
 
 # Make output directories
-mkdir -p out_dir
+mkdir -p output
 mkdir -p out_figs
 mkdir -p out_dir_report
 
