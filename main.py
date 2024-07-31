@@ -22,7 +22,7 @@ subjects_dir = config['output']
 subject = 'output'
 
 # copy folder subjects_dir to "out_dir"
-os.system("cp -r " + subjects_dir + "out_dir")
+os.system("cp -r " + subjects_dir + " out_dir")
 subjects_dir = "out_dir"
 
 # Start MNE-Report
