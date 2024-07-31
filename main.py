@@ -24,8 +24,8 @@ subject = 'output'
 #subject_id=os.path.basename(os.path.normpath(sys.argv[2]))
 
 # copy folder subjects_dir to "out_dir"
-os.system("cp -r " + subjects_dir + " out_dir")
-subjects_dir = "out_dir"
+os.system("cp -r " + subjects_dir)
+subjects_dir = "output"
 
 # Start MNE-Report
 report = mne.Report(title='Report')
