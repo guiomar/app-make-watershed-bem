@@ -21,6 +21,9 @@ subjects_dir = config['output']
 # subject: Name of freesurfer subject folder
 subject = 'output'
 
+# Since we can't edit the already provided freesurfer folder, 
+# we create a copy so it can include all computed BEM
+# The new 'output' folder will contain all the freesurfer folders + bem
 # copy folder subjects_dir to "out_dir"
 os.system("cp -r " + subjects_dir + " out_dir")
 subjects_dir = "out_dir"
